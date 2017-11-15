@@ -1,0 +1,67 @@
+\usepackage[german]{babelbib}
+%Diagramme
+\usepackage{pgfplots}
+	\usepgfplotslibrary{colorbrewer}
+	\usepgfplotslibrary{units}
+%Schaltungen
+\usepackage{tikz}
+	\usetikzlibrary{calc, arrows, intersections}
+    \usetikzlibrary{angles,quotes,babel}
+	\usetikzlibrary{shapes,snakes,positioning}
+	\usetikzlibrary{external, backgrounds} 
+	\usetikzlibrary{pgfplots.polar} 
+	%\usetikzlibrary{decorations.markings}
+	%\tikzexternalize
+	\tikzset{
+	maxwidth/.style=	{text width=0.25\linewidth},
+	wenn/.style=		{maxwidth,	draw, fill=orange!50, diamond, aspect=2.5},
+	start/.style=		{maxwidth,	draw, fill=blue!30, rectangle,rounded corners},
+	ausgabe/.style=		{maxwidth, 	draw, fill=red!30, trapezium, trapezium left angle=75, trapezium right angle=-75},
+	arrow/.style=		{->},
+	arrowlab/.style=	{pos=0.1,sloped,above, rotate=0},
+	arrowlabmid/.style=	{pos=0.1,sloped,right, rotate=90},
+	unwichtig/.style=	{}
+	
+	}
+	\tikzset{
+    	partial ellipse/.style args={#1:#2:#3}{
+       		insert path={+ (#1:#3) arc (#1:#2:#3)}
+    	}
+	}
+%Schaltungen
+\usepackage[european, straightvoltages, americaninductors, siunitx,smartlabels]{circuitikz} 
+%Farben (rowcolor)
+\usepackage{colortbl}
+%Farben
+\usepackage{color}
+%Tabellen über mehrere Seiten
+\usepackage{longtable}
+%Csv Dateien in Tabelle
+\usepackage{csvsimple}
+%Zellen in Tabelle vertical verbinden
+\usepackage{multirow}
+\usepackage{transparent}
+%Tables und Figures an seinen Platz erzwungen
+\usepackage{float}
+%Vektorgraiken
+\graphicspath{{}} %Pfad für Vektorgrafiken
+%Kapitelweise durchnummerieren
+\usepackage{chngcntr}
+	\counterwithin{figure}{section}
+	\counterwithin{table}{section}
+	\counterwithin{equation}{section}
+%Abkürzungen
+\usepackage[printonlyused]{acronym}
+%leerzeichen zwischen einheit und zahl, automatisch runden
+\usepackage{siunitx}
+	\sisetup{locale = DE, exponent-product=\cdot, round-mode=places, round-precision=2, output-product=\cdot, input-product=*, round-integer-to-decimal, round-minimum = 0.01}
+%Inhaltsverzeichnis verlinkt
+\usepackage{hyperref}
+	\hypersetup{
+		colorlinks,
+    	citecolor=black,
+    	filecolor=black,
+   	 	linkcolor=black,
+    	urlcolor=black,
+    	linktoc=all,     %set to all if you want both sections and subsections linked
+	}

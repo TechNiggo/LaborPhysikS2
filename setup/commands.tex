@@ -1,0 +1,173 @@
+%==============================================%
+%==============Diagrammdefinition==============%
+%Autor: 		Nico Herkner
+%Erstelldatum:	
+%Version:
+%		1.2		2017-11-01	NH
+%			NH	added:	\leereZellen[2]
+%			NH	added:	\kariert[2]
+%			NH	added:	\linie[1]
+%			NH	changed:\linie[2] 
+%			NH	changed:\leereZellen
+%		1.3		2017-11-04	NH
+%			NH	changed:\data
+%			NH	changed:\data
+%			NH	added:	\pgfplotsset
+%			NH	added:	\MyAxis style
+%			NH	added:	\MyPlotCsv style
+%		1.4		2017-11-15	NH
+%			NH	added:	\ome
+%			NH	added:	\grad
+
+
+%Settings for Tikz and pgfplots
+\pgfplotsset{
+	MyAxis/.style={
+		/pgf/number format/.cd, use comma,
+		1000 sep={.},
+		anchor=origin,	% Align the origins
+		%x=1cm, y=1cm,	% Set the same unit vectors
+		grid=major, % erstellt ein Raster
+		width=\linewidth,
+		cycle list name=MyCyclelist,
+	},
+	MyPlotCsv/.style={
+		/pgf/number format/read comma as period, %Komma statt Punkt als Dezimaltrennzeichen
+		domain=0:360,
+		samples=100
+	},
+}
+
+
+%Counter
+\newcounter{owncsvrow}
+\newcounter{counterA}
+\newcounter{counterB}
+\newcounter{counterC}
+\newcounter{counterD}
+\newcounter{counterE}
+\newcounter{counterF}
+
+%neue Definitionen
+\newcommand{\ome}{\omega}
+\newcommand{\grad}{^\circ}
+\newcommand{\leer}[0]{ } % Leertaste
+\newcommand{\fett}[1]{\textbf{#1}}%Fett
+\newcommand{\kursiv}[1]{\\textit{#1}}%Kursiv
+\newcommand{\unterstrichen}[1]{\textbf{#1}}%Unterstruchen
+%Diagramm
+\newcommand{\data}[3][]{
+	\addplot
+		table[
+			col sep =semicolon, %Trennzeichen zwischen Spalten
+			/pgf/number format/read comma as period, %Komma statt Punkt als Dezimaltrennzeichen
+			y=#3, %Spaltenname für y-Werte
+			domain=0:15,
+    		samples=100,
+			#1
+		]{#2};
+}
+\newcommand{\diagramm}[3]{
+	\begin{tikzpicture}[show background rectangle]
+		\begin{axis}[
+			%smooth,
+			%axis x line=bottom, axis y line=left, %Pfeile bei den Achsen
+			width=\linewidth, %passt die breite des Diagramms auf die Seitenbreite an
+			grid=major, % erstellt ein Raster
+			grid style={dashed,gray!30}, %formatiert das Raster
+			cycle list name=MyCyclelist,
+			xlabel=$#1$\newline test, %Erstellt eine Achsenbeschriftung
+			ylabel=$#2$,
+			%legend style={at={(0.5,-0.2)},anchor=north}, %Positioniert die Legende unter der Tabelle
+			]
+		#3 %Daten
+		\end{axis}
+	\end{tikzpicture}
+}
+%Leere Zeilen in einer Tabelle \leereZeilen{ZeilenAnzahl}{Aufbau einer Zeile mit &}
+\newcommand{\leereZellen}[2]{
+	\hline
+	\csvreader[separator = semicolon, late after line =\\\hline, filter test=\ifnumless{\csvcoli}{#1+1}]{./tables/hundert.csv}{}{#2}
+}
+%Karriert \kariert[steplength]{zeilen}
+\newcommand\kariert[2][0.5cm]{% 
+   \begin{tikzpicture}[gray,step=#1]
+     \pgfmathtruncatemacro\anzahl{(\linewidth-\pgflinewidth)/#1} % maximale Anzahl Kästchen pro Zeile
+     \draw (0,0) rectangle (\anzahl*#1,#2*#1) (0,0) grid (\anzahl*#1,#2*#1);
+   \end{tikzpicture} 
+}
+\newcommand{\linie}[2][\textwidth]{
+	\foreach \x in {1,...,#2} {\\[9pt] \noindent\rule{#1}{1pt}}
+}
+
+%Ergebnis doppelt unterstrichen
+\newcommand{\result}[1]{
+	\underline{\underline{#1}}
+}
+%Einheit
+\newcommand{\unit}[1]{
+	~\mathrm{#1}
+}
+%Unterstrichen
+\renewcommand{\u}[1]{
+	\underline{#1}
+}
+%Bruch
+\renewcommand{\/}[2]{
+	~\frac{#1}{#2}
+}
+%Bruch
+\newcommand{\fraq}[2]{
+	~\frac{#1}{#2}
+}
+%Gleichung
+\newcommand{\eq}[1]{
+	(\ref{#1})
+}
+%Varphi
+\newcommand{\fii}[0]{
+	\varphi \alpha
+}
+%Vektor
+\newcommand{\vek}[1]{
+	\overset{\rightharpoonup}{#1}
+}
+%Zahlenmengen
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\Q}{\mathbb{Q}}
+%Betragsstriche
+\providecommand{\abs}[1]{
+	\lvert #1 \rvert
+}
+
+
+%Neue Umgebungen
+%Tabelle
+\newenvironment{tabele}{\begin{longtable}}{\end{longtable}}
+\newenvironment{tabelle}{\begin{table}[h] \centering}{\end{table}}
+\newenvironment{abbildung}{\begin{figure}[h] \centering}{\end{figure}}
+
+
+%Neue Farben
+\definecolor{darkspringgreen}{rgb}{0.09, 0.45, 0.27}
+\definecolor{darkpastelred}{rgb}{0.76, 0.23, 0.13}
+\definecolor{dimgray}{rgb}{0.41, 0.41, 0.41}
+\definecolor{firstcsvrow}{rgb}{0.68, 0.68, 1}
+\definecolor{secondcsvrow}{rgb}{0.75, 0.75, 0.75}
+
+%Neuer Spaltentyp 
+\newcolumntype{K}[1]{>{\centering\arraybackslash}p{#1}} %Mittig mit bestimmter Breie
+
+%Farbreihenfolge bei Plots
+\pgfplotscreateplotcyclelist{MyCyclelist}{%
+  {red, mark = *, thick},
+  {blue, mark = square*, thick},
+  {orange, mark = diamond*, thick},
+  {green, mark = pentagon*, thick},
+  {yellow, mark = *, thick},
+  {black, mark = triangle*, thick},
+}
+%legend image post style={line width=1pt}
