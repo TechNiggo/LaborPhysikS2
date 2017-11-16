@@ -45,7 +45,7 @@
 \newcommand{\datum}{\today} 	%Datum
 \newcommand{\headerimage}{\includegraphics[height=30pt]{img/ostfalia.png}} 	%headerimage
 \author{Marius Neumann \and \&  \and Nico Herkner}
-\title{Labor \labor - Versuch \versuch \\[1ex] \versuchtitel}
+\title{Labor \labor ~- Versuch \versuch \\[1ex] \versuchtitel}
 \date{\datum}
 %Neue Titelseite
 %\renewcommand{\maketitle}{
@@ -66,7 +66,7 @@
 	\fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
 	%Kopfzeile
 	\fancyhead[L]{Nico Herkner, 70452700\\Marius Neumann, 70453277\\D1, \datum} %Kopfzeile links
-	\fancyhead[C]{\betreuer \\ Labor \labor - Versuch \versuch\\\leftmark} %zentrierte Kopfzeile
+	\fancyhead[C]{\betreuer \\ Labor \labor ~- Versuch \versuch\\\leftmark} %zentrierte Kopfzeile
 	\renewcommand{\sectionmark}[1]{\markboth{#1}{}} %Section-name ohne Nummerierung
 	\fancyhead[R]{\headerimage\\\begin{footnotesize}	Fakultät: Elektrotechnik\end{footnotesize}}
 	\renewcommand{\headrulewidth}{0.4pt} %obere Trennlinie 
