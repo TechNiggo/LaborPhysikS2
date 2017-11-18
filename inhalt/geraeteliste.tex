@@ -7,10 +7,9 @@
 		\hline \rowcolor{firstcsvrow}
 		Nr. & Gerät \\
 		\hline
-		%\csvreader[separator= semicolon, late after line=\\\hline]
-		%	{tables/geraeteliste.csv}{}{\thecsvrow & \csvcoli}
-		%\leereZellen[10]{\csvcoli & }
-		\leereZellen{10}{\csvcoli &}
+		\csvreader[separator= semicolon, late after line=\\\hline]
+			{tables/geraeteliste.csv}{}{\thecsvrow & \csvcoli}
+	%	\leereZellen[10]{\csvcoli & }
 		
 	\end{tabular}
 \end{tabelle}

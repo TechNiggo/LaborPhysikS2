@@ -51,15 +51,14 @@ Die Tabellen \ref{tab:auswertung->MittelwertResonanzabstand->Messung1} bis \ref{
 	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
 		\hline \rowcolor{firstcsvrow}
 		Messung & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & Mittelwert \\
-		\csvreader[separator=semicolon, late after line = \\\hline]{./tables/A1d.csv}{}{
-			\csvcoli & $\num{\csvcolii}$ & $\num{\csvcoliii}$ & $\num{\csvcoliv}$ & $\num{\csvcolv}$ & $\num{\csvcolvi}$ & $\num{\csvcolvii}$ & $\num{\csvcolviii}$ & $\num{\csvcolix}$ & $\num{\csvcolx}$ & $\num{\csvcolxi}$ & $\num{\csvcolxii}$
-		}
+		\csvreader[separator=semicolon, late after line = \\\hline]{./tables/A1d.csv}{}
+			{\csvcoli & $\num{\csvcolii}$ & $\num{\csvcoliii}$ & $\num{\csvcoliv}$ & $\num{\csvcolv}$ & $\num{\csvcolvi}$ & $\num{\csvcolvii}$ & $\num{\csvcolviii}$ & $\num{\csvcolix}$ & $\num{\csvcolx}$ & $\num{\csvcolxi}$ & $\num{\csvcolxii}$}
 	\end{tabular}
 \end{tabelle}
 
 \subsection{Berechnung der Wellenlänge $\lambda$}
 \label{sub:auswertung->Wellenlaenge}
-Abbildung \ref{ab:auswertung->lambda->begruendung} zeigt die stehende Welle im Resonanzrohr mit den dazugehörigen Längenbeziehungen. Die Anzahl der Resonanzen ist in blau eingezeichnet, wobei bei der Resonanz $l_{min}$ mit eins zu zählen begonnen wurde.
+Abbildung \ref{ab:auswertung->Wellenlaenge->begruendung} zeigt die stehende Welle im Resonanzrohr mit den dazugehörigen Längenbeziehungen. Die Anzahl der Resonanzen ist in blau eingezeichnet, wobei bei der Resonanz $l_{min}$ mit eins zu zählen begonnen wurde.
 \begin{abbildung}
 	\input{./tikz/bedruendungLambda}
 	\caption{Veranschaulichung der Stehenden Welle im Resonanzrohr mit Wellenparametern}
@@ -74,23 +73,67 @@ Mit dem Mittelwert aus \ref{sub:auswertung->MittelwertResonanzabstand} und der G
 	\caption{Berechnete Wellenlänge für die vier Messungen}
 	\label{tab:auswertung->Wellenlaenge->Ergebnis}
 	\sisetup{round-precision=2}
-	\begin{tabular}{|c|c|c|}
+	\begin{tabular}{|c|c|c|c|}
 		\hline \rowcolor{firstcsvrow}
-		Messung & $\overline{\Delta l_n}/cm$ & $\lambda/cm$ \\
-		\csvreader[separator=semicolon, late after line = \\\hline]{./tables/Ergebnisse.csv}{}{
-			\csvcoli & $\num{\csvcolvi}$ & $\num{\csvcolvii}$
-		}
+		Messung & $\overline{\Delta l_n}$ in $cm$ & $n$ & $\lambda$ in $cm$ \\
+		\csvreader[separator=semicolon, late after line = \\\hline]{./tables/Ergebnisse.csv}{}
+			{\csvcoli~$(\csvcolii~Hz)$ & $\num{\csvcolvi}$ & $\csvcolv$ & $\num{\csvcolvii}$}
 	\end{tabular}
 \end{tabelle}
 
 \subsection{Berechnung der Schallgeschwindigkeit $c$}
 \label{sub:auswertung->Schallgeschwindigkeit}
+Die Schallgeschwindigkeit $c$ wurde wie folgt berechnet und ist in Tabelle \ref{tab:auswertung->Schallgeschwindigkeit->Ergebnis} für jede Messung zu finden.
+\begin{align}
+c_n&=f_n \cdot \lambda
+\end{align}
 
+\begin{tabelle}
+	\caption{Ergebnisse der Berechnung der Schallgeschwindigkeit}
+	\label{tab:auswertung->Schallgeschwindigkeit->Ergebnis}
+	\sisetup{round-precision=1}
+	\begin{tabular}{|c|c|c|c|}
+		\hline \rowcolor{firstcsvrow}
+		Messung & $f$ in $Hz$ & $\lambda$ in $cm$ & $c$ in $m/s$\\
+		\csvreader[separator=semicolon, late after line = \\\hline]{./tables/Ergebnisse.csv}{}
+			{\csvcoli & $\csvcolii$ & $\num{\csvcolvii}$ & $\num{\csvcolviii}$}
+	\end{tabular}
+\end{tabelle}
 
-\subsection{Korrektur des Temperatureinflusses}
+\subsection{Berücksichtigung des Temperatureinflusses}
 \label{sub:auswertung->Temperatur}
+Die Schallgeschwindigkeiten bei $20~\grad C$ der vier Messungen wurde mit Gleichung (11) berechnet und sind in Tabelle \ref{tab:auswertung->Temperatur->Ergebnis} 
 
+\begin{tabelle}
+	\caption{Werte der Schallgeschwindigkeit bei $20~\grad C$ der einzelnen Messungen}
+	\label{tab:auswertung->Temperatur->Ergebnis}
+	\sisetup{round-precision=2}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline \rowcolor{firstcsvrow}
+		Messung &  $T_v$ in $\grad C$ & $T_n$ in $\grad C$ & $c$ in $m/s$ & $c_{exp}(20~\grad C)$ in $m/s$\\
+		\csvreader[separator=semicolon, late after line = \\\hline]{./tables/Ergebnisse.csv}{}
+			{\csvcoli~$(\csvcolii~Hz)$ & $\num[round-precision=1]{\csvcoliii}$ & $\num[round-precision=1]{\csvcoliv}$ & $\num{\csvcolviii}$ & $\num{\csvcolix}$}
+	\end{tabular}
+\end{tabelle}
 
 \subsection{Zusammenfassung der Ergebnisse und Vergleich mit Literaturwert}
 \label{sub:auswertung->Zusammenfassung}
+Tabelle \ref{tab:auswertung->zusammenfassung->vergleich} zeigt den Vergleich des experimentellen Wertes $c_{exp}$ und dem Literaturwert $c_{lit}=\num{343,14}$ in Luft bei $20 ~\grad C$.
+\begin{tabelle}
+	\caption{Vergleich der Messwerte mit dem Literaturwert bei 20 $\grad C$}
+	\label{tab:auswertung->zusammenfassung->vergleich}
+	\sisetup{round-precision=3}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline \rowcolor{firstcsvrow}
+		Messung & $c_{exp}(20~\grad C)$ & $c_{lit}(20~\grad C)$ & abs. Abweichung & rel. Abweichung\\
+		\csvreader[separator=semicolon, late after line = \\\hline]{./tables/Ergebnisse.csv}{}
+			{\csvcoli~$(\csvcolii~Hz)$ & $\num{\csvcolix}~m/s$ & $\num[round-precision=2]{\csvcolx}~m/s$ & $\num{\csvcolxi}~m/s$ & $\num{\csvcolxii} ~\%$}
+		Mittelwert& $\num{333,7448981}~m/s$	& $\num[round-precision=2]{343,14}~m/s$	& $\num{-9,395101917}~m/s$	& $\num{-2,737979226}~\%$
+		\\\hline
+	\end{tabular}
+\end{tabelle}
+
+\subsection{Diskussion der Ergebnisse}
+\label{sub:auswertung->Diskussion}
+Betrachtet man Tabelle \ref{tab:auswertung->zusammenfassung->vergleich} fällt auf, dass mit steigender Frequenz die Abweichung vom Literaturwert größer wird. Dies liegt wahrscheinlich an der Bandbreite der einzelnen Resonanzfrequenz geringer wird, weil mehr Resonanzen auf der Länge des Resonanzrohres zu messen waren, und somit die Wellenbäuche spitzer und schmaler werden. Daher war Stelle der Auslenkungsmaxima präziser abzulesen. 
 %========Marius=================
