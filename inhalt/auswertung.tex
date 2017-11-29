@@ -58,7 +58,7 @@ Die Tabellen \ref{tab:auswertung->MittelwertResonanzabstand->Messung1} bis \ref{
 
 \subsection{Berechnung der Wellenlänge $\lambda$}
 \label{sub:auswertung->Wellenlaenge}
-Abbildung \ref{ab:auswertung->Wellenlaenge->begruendung} zeigt die stehende Welle im Resonanzrohr mit den dazugehörigen Längenbeziehungen. Die Anzahl der Resonanzen ist in blau eingezeichnet, wobei bei der Resonanz $l_{min}$ mit eins zu zählen begonnen wurde.
+Abbildung \ref{ab:auswertung->Wellenlaenge->begruendung} zeigt die stehende Welle im Resonanzrohr mit den dazugehörigen Längenbeziehungen. Die Anzahl der Resonanzen ist in rot eingezeichnet, wobei bei der Resonanz $l_{min}$ mit eins zu zählen begonnen wurde.
 \begin{abbildung}
 	\input{./tikz/bedruendungLambda}
 	\caption{Veranschaulichung der Stehenden Welle im Resonanzrohr mit Wellenparametern}
@@ -103,7 +103,7 @@ c_n&=f_n \cdot \lambda
 
 \subsection{Berücksichtigung des Temperatureinflusses}
 \label{sub:auswertung->Temperatur}
-Die Schallgeschwindigkeiten bei $20~\grad C$ der vier Messungen wurde mit Gleichung (11) berechnet und sind in Tabelle \ref{tab:auswertung->Temperatur->Ergebnis} 
+Die Schallgeschwindigkeiten wurden mit den gemessenen Temperaturen für $20~\grad C$ mit Gleichung (11) berechnet und sind in Tabelle \ref{tab:auswertung->Temperatur->Ergebnis} dargestellt.
 
 \begin{tabelle}
 	\caption{Werte der Schallgeschwindigkeit bei $20~\grad C$ der einzelnen Messungen}
@@ -136,15 +136,29 @@ Tabelle \ref{tab:auswertung->zusammenfassung->vergleich} zeigt den Vergleich des
 
 \subsection{Diskussion der Ergebnisse}
 \label{sub:auswertung->Diskussion}
-Betrachtet man Tabelle \ref{tab:auswertung->zusammenfassung->vergleich} fällt auf, dass mit steigender Frequenz die Abweichung vom Literaturwert größer wird. Dies liegt wahrscheinlich daran, dass die Bandbreite der einzelnen Resonanzen geringer wird, weil mehr Resonanzen auf der Länge des Resonanzrohres zu messen sind, und somit die Wellenbäuche spitzer und schmaler werden. Daher war die Stelle der Auslenkungsmaxima präziser abzulesen. \\
+%Betrachtet man Tabelle \ref{tab:auswertung->zusammenfassung->vergleich}, fällt auf, dass mit steigender Frequenz die absolute Abweichung vom Literaturwert größer wird. Dies liegt wahrscheinlich daran, dass die Bandbreite der einzelnen Resonanzen geringer wird, weil mehr Resonanzen auf der Länge des Resonanzrohres zu messen sind, und somit die Wellenbäuche spitzer und schmaler werden. Daher war die Stelle der Auslenkungsmaxima präziser abzulesen. \\
 %Die sehr geringe Abweichung bei der vierten Messung sieht schön aus, ist allerdings aber mit Vorsicht zu betrachten, da  \\
-Ein weiterer Grund für Fehler trat beim Ablesen auf. Hier war es schwierig Werte für $l_{max}$ genau zu bestimmen, da man nicht direkt im rechten Winkel auf den Maßstab schauen konnte, sondern von schräg oben ablesen musste, weil das mit Wasser gefüllte Rohr im Weg war. Dabei schätzen wir eine Messungenauigkeit von $1-2~mm$. 
-Für die Messung wäre auch eine ausführliche Fehlerrechnung möglich, um so die Ergebnisse besser zu beurteilen.
+%Ein weiterer Grund für Fehler trat beim Ablesen auf (Systematische Fehler). Hier war es schwierig Werte für $l_{max}$ genau zu bestimmen, da man nicht direkt im rechten Winkel auf den Maßstab schauen konnte, sondern von schräg oben ablesen musste, weil das mit Wasser gefüllte Rohr im Weg war. Dabei schätzen wir eine Messungenauigkeit von $1-2~mm$. 
+%Für die Messung wäre auch eine ausführliche Fehlerrechnung möglich, um so die Ergebnisse besser zu beurteilen.\\
 %========Marius=================
 %Nur eins von beiden sollte übernommen werden
-In der Tabelle \ref{tab:auswertung->zusammenfassung->vergleich} kann man sehen, dass die Werte für $c_{exp}(20 ~\grad C)$ mit steigender Frequenz näher am Literaturwert liegen. Dies liegt an der Wellenlänge der stehenden Welle.
-Da bei steigender Frequenz die Wellenlänge kleiner wird \ref{tab:auswertung->Wellenlaenge->Ergebnis} und somit die Wellenflanken steiler werden, kann man die Position der Resonanzen besser ablesen.
-Da die Wellenflanken bei $500 ~Hz$ sehr flach sind, ist der Fehler dort besonders groß.
-Ein weiterer Fehler ergibt sich aus der Ableseungenauigkeit  bei $l_{max}$.
-Wenn man $l_{max}$ abgelesen hat, musste man von schräg oben auf die Skala schauen.
-Durch die Oberflächenspannung und Lichtbrechung im Wasser schätzen wir einen Parallaxenfehler von $1-2 ~mm$.
+%In der Tabelle \ref{tab:auswertung->zusammenfassung->vergleich} kann man sehen, dass die Werte für $c_{exp}(20 ~\grad C)$ mit steigender Frequenz näher am Literaturwert liegen. Dies liegt an der Wellenlänge der stehenden Welle.
+%Da bei steigender Frequenz die Wellenlänge kleiner wird \ref{tab:auswertung->Wellenlaenge->Ergebnis} und somit die Wellenflanken steiler werden, kann man die Position der Resonanzen besser ablesen.
+%Da die Wellenflanken bei $500 ~Hz$ sehr flach sind, ist der Fehler dort besonders groß.
+%Ein weiterer Fehler ergibt sich aus der Ableseungenauigkeit  bei $l_{max}$.
+%Wenn man $l_{max}$ abgelesen hat, musste man von schräg oben auf die Skala schauen.
+%Durch die Oberflächenspannung und Lichtbrechung im Wasser schätzen wir einen Parallaxenfehler von $1-2 ~mm$.
+
+%=============FINAL=====================
+
+Wie in Tabelle \ref{tab:auswertung->zusammenfassung->vergleich} zu sehen, fällt die Abweichung unserer Messwerte vom Literaturwert mit steigender Frequenz. Ein Grund dafür ist sehr wahrscheinlich an der Wellenlänge, die mit steigender Frequenz kleiner wird. %somit das Ablesen mit einer geringeren Abweichung besser möglich ist. 
+Bei einer kleineren Wellenlänge treten bei einer stehenden Welle auf der gleichen Strecke mehr Wellenbäuche auf. Diese sind dann schmaler und spitzer und deren Extrema können somit mit einer geringeren Abweichung abgelesen werden. Zur Abschätzung von diesem und weiterer statistischer Fehler wäre eine ausführliche Fehlerrechnung sinnvoll.
+Zusätzlich traten beim Ablesen von $l_{max}$ systematische Fehler auf, da das untere Rohr nicht vollständig mit Wasser gefüllt ist und man zum Ablesen von $l_{max}$ von schräg oben auf den Maßstab schauen musste. Deshalb tritt hier ein Parallaxenfehler von circa $1-2~mm$ auf. Dieser Fehler verschiebt alle Messwerte in die gleiche Richtung, aber nicht um den gleichen Betrag. \\
+Der Mittelwert aus den Endergebnissen wird auch von dem mit einer großen Abweichung behafteten Wert der ersten Messung beeinflusst und ist daher mit betragsmäßig $2,7~\%$ relativ groß. \\[5pt]
+
+In der zweiten Messung war eine Resonanz bei circa $100~cm$ gemessen. Jedoch hat diese Resonanz keinen Einfluss auf die Qualität unserer Messergebnisse.\\[5pt]
+
+Jede unsere Messungen wurde bei circa $20~\grad C$ durchgeführt. Deshalb unterscheiden sich in Tabelle \ref{tab:auswertung->Temperatur->Ergebnis} die normierten Schallgeschwindigkeiten nicht sehr stark von den Messwerten, bei denen die Temperatur nicht berücksichtigt wurde. \\[5pt]
+
+Die weiteren Berechnungen basieren auf den selben Messwerten wie die Gesamtergebnisse und sind damit mit den gleichen Fehlern und den dazu gehörigen Ursachen behaftet.
+
